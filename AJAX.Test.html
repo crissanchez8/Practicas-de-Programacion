@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+  <title>Ejercicio 1</title>
+  <style>
+    h3{
+      font-size: 15px;
+    }
+     img{
+       width: 200px;
+       height: 200px;
+     }
+     .uniq{
+       width: 300px;
+       height: 300px;
+       border: solid blue 1px;
+     }
+  </style>
+</head>
+<body>
+<input type="text" name="busqueda" id="busqueda" value=""><button type="button" name="button" onclick="buscar();">Buscar</button><br>
+<div id="result" class="col-md-12">
+
+</div>
+</body>
+<script type="text/javascript">
+    var images=[]
+    var get_pictures = function (searchTerm) {
+      $.ajax({
+        url: "https://api.imgur.com/3/gallery/search?q="+ encodeURI(searchTerm),
+        headers: { "Authorization": "Client-ID e3776adbe9c5fb9" },
+        success: function(response){
+          console.log(response)
+          for (var i = 0; i < response.data.length; i++) {
+            var image = {
+              $el: $('<div class="col-md-4 uniq">').appendTo($('#result')),
+              link: response.data[i].link,
+              title:response.data[i].title
+            }
+            image.$el.append('<h3>'+image.title+'</h3>')
+            image.$el.append('<img src="'+image.link+'">')
+            console.log(image)
+            images.push(image)
+          }
+        }
+      })
+    }
+    var buscar=function(){
+       get_pictures($("#busqueda").val())
+    }
+</script>
+</html>

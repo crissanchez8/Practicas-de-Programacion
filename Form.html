@@ -1,0 +1,32 @@
+<html>
+  <body>
+      <form method="POST" onsubmit="Validar();">
+        <input type="text" id="name" name="name">
+        <input type="text" id="phone" name="phone">
+        <input type="text" id="email" name="email">
+​
+        <input type="submit">
+      </form>
+<script>
+  function Validar() {
+​
+  var form_message
+​
+  var name = document.querySelector("#name").value
+​
+  var phone = document.querySelector("#phone").value
+​
+  var email = document.querySelector("#email").value
+​
+    if ( !name || !email || !phone ) {
+   form_message = "Please enter all required fields"
+ }    else {
+   form_message = "Form accepted, thank you!"
+ }
+​
+ alert(form_message);
+​
+ }
+</script>
+</body>
+</html>

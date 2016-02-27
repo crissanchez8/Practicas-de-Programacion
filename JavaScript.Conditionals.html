@@ -1,0 +1,72 @@
+<html>
+<head>
+  <style>
+  #greeting {
+  font-weight: bold;
+  }
+  #bebida {
+  color:red;
+  }
+  #final {
+  color: green;
+  font-size: 30px;
+  }
+  </style>
+</head>
+<body>
+  <div id=greeting>
+  </div>
+  <br>
+  <div id=bebida>
+  </div>
+  <div id=final>
+    <div>
+  <script>
+    var name,age,gender,is_member,thirsty,drink_of_choice;
+    var intro;
+
+    name = prompt("Como te llamas?");
+    age = prompt("Cual es su edad?");
+    gender = prompt("Ingrese su genero");
+    is_member = false;
+
+  /* Si no son un miembro o si son menores de 21 años, dirigite a ellos como señor o señora,
+   según corresponda y en tono de disculpa negales el acceso al club.
+Si no, saludalos como el señor o la señora (en su caso por género) y su nombre, y dales la bienvenida.
+ Si tienen sed, preguntale la bebida que les gustaría tomar.
+Si su bebida favorita es cualquier cosa menos
+ "Coors Light", deciles "sí" (nombre) "un" (drink_name) " viniendo!". Si piden una Coors, echalos del bar.
+*/
+    //
+    if (gender==="hombre") {
+     intro="Sr. ";
+    }
+    if (gender==="mujer") {
+      intro="Sra. ";
+    }
+    //
+
+    if  ( (!is_member) || (parseInt(age) < 21) )  {
+       document.querySelector ("#greeting").textContent = intro + name + " " + "disculpe pero no puede entrar"
+    }
+    else {
+      document.querySelector ("#greeting").textContent = "Te doy la bienvenida " + intro + name;
+      thirsty = prompt("Tenes sed?");
+      if ( (thirsty==="Si") || (thirsty==="si") || (thirsty==="SI") || (thirsty==="sI") ) {
+        document.querySelector ("#bebida").textContent = "Que quieres tomar?";
+        drink_of_choice = prompt("Que tipo de bebida quieres?");
+        if (drink_of_choice!=="Coors Light")  {
+          document.querySelector ("#final").textContent = "Si " + name + " una" + drink_of_choice + " viniendo!";
+        }
+        else {
+          document.querySelector ("#final").textContent = "Fuera de bar.";
+        }
+      }
+      else {
+        document.querySelector ("#bebida").textContent = "Bueno chau";
+      }
+    }
+
+  </script>
+</body>
+</html>

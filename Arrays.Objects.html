@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  <style>
+    #divespecial {
+      font-size: 30px;
+      color:red;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="divespecial">
+  </div>
+  <script>
+  var obj = {
+      greeting: 'howdy',
+      direction: 'down',
+      color: 'red',
+  }
+
+  for (var a in obj) {
+      if (a === "color") {
+      $("#divespecial").append(obj[a] + ", ")
+      }
+  }
+
+  for (var a in obj) {
+      if (obj[a] === "down") {
+      $("#divespecial").append(a + ", ")
+      }
+  }
+    target_key = "greeting";
+    for (var a in obj) {
+      if (a === target_key)
+      $("#divespecial").append(obj[a])
+    }
+
+  </script>
+</body>
+</html>

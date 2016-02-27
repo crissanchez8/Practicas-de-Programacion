@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>persona</title>
+  </head>
+  <body>
+​
+    <script type="text/javascript">
+
+var move_fn = function(){
+  this.speed++
+  this.position *= this.speed
+  console.log("La velocidad es de " + this.speed + " y va de " + this.position)
+}
+
+var car1 = {
+  type: "Honda Civic",
+  speed: 5,
+  position: 1,
+  move: move_fn
+}
+
+var car2 = {
+  type: "Toyota Corolla",
+  speed: 3,
+  position: 1,
+  move: move_fn
+}
+
+car1.move()
+car1.move()
+car1.move()
+car2.move()
+car2.move()
+car2.move()
+
+    </script>
+  </body>
+</html>
